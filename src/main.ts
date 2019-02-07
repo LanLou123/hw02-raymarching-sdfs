@@ -11,6 +11,10 @@ import ShaderProgram, {Shader} from './rendering/gl/ShaderProgram';
 // This will be referred to by dat.GUI's functions that add GUI elements.
 const controls = {
   tesselations: 5,
+    coherence : 2,
+    lightx : 1,
+    lighty : 1,
+    lightz : 1,
   'Load Scene': loadScene, // A function pointer, essentially
 };
 
@@ -48,6 +52,14 @@ function main() {
   // Add controls to the gui
   const gui = new DAT.GUI();
 
+  var sundir = gui.addFolder('sundir');
+    sundir.add(controls,"lightx",-1,1).step(0.1);
+    sundir.add(controls,"lighty",-1,1).step(0.1);
+    sundir.add(controls,"lightz",-1,1).step(0.1);
+
+
+  gui.add(controls,"coherence",-1,4).step(0.2);
+
   // get canvas and webgl context
   const canvas = <HTMLCanvasElement> document.getElementById('canvas');
   const gl = <WebGL2RenderingContext> canvas.getContext('webgl2');
@@ -83,9 +95,16 @@ function main() {
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
     renderer.clear();
     processKeyPresses();
-    renderer.render(camera, flat, [
+    var light = vec3.fromValues(controls.lightx,controls.lighty,controls.lightz);
+    renderer.render(camera,
+        flat,
+        [
       square,
-    ], time);
+    ],
+        time,
+        controls.coherence,
+        light
+        );
     time++;
     stats.end();
 
