@@ -2,7 +2,7 @@
 
 ### Name and pennkey:lanlou
 
-![](mata2.gif)
+![](mata3.gif)
 
 [DEMO](https://lanlou123.github.io/hw02-raymarching-sdfs/)
 
@@ -12,7 +12,7 @@
 - Animation of metaballs flying around the center geometry which simply achieved by several sin and cos functions
   and also animations of the morphing of the geometry in the center by applying a smoothstep of a sin function of several different SDF and mix them together
   the gif below showed a twisted geometry
-  ![](mata3.gif)
+  ![](mata2.gif)
 - texture of the floor :
   - the checker board feature is achieved by first computing "floor" of the UV coordinates on the plane SDF shape, then mod ```uvtile.x+uvtile.y``` with 2.f.
   - the stripe appears on top of checker board is done by applying sin function to a ramped FBM perlin noise
