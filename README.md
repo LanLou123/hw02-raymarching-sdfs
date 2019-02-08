@@ -28,6 +28,8 @@ that the reflected scene is not contigious instead are cut by the "stripes".
 
 - the first Gui controls the sun's direction
 - the second controls the coherence of center geometry
+changing the coherence between metaballs bring interesting alternatives of shapes
+![](ccc.gif)
 
 ## References:
 - [Subsurface scatterig by TekF](https://www.shadertoy.com/view/4dsGRl)
