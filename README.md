@@ -1,5 +1,7 @@
 # CIS 566 Homework 2: Implicit Surfaces
 
+### Name and pennkey:lanlou
+
 ![](mata.gif)
 
 [DEMO](https://lanlou123.github.io/hw02-raymarching-sdfs/)
