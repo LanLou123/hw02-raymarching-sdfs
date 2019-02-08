@@ -420,19 +420,21 @@ vec3 efvcol = vec3(0);
    if(inter>0.f&&t1 == (drawDistance+1.0)){
 
    vec2 tile = floor(pos.xz/3.0);
+   float modv = mod((tile.x+tile.y),2.0) ;
    checkercol =vec3(.4,.4,.4)*mod((tile.x+tile.y),2.0) ;
 
 
-   float efv = cos(tvv(vec2(pos.x*4.0,pos.z*4.0)));
+   float efv = cos(tvv(vec2(pos.x*6.0,pos.z*6.0)));
 
     efvcol= vec3(1)*efv;
 
-
+    if(modv<0.4)
    checkercol += 0.1*clamp(efvcol,0.0,1.0);
-
+    else
+    checkercol -= 0.1*clamp(efvcol,0.0,1.0);
    ro = pos;
    vec3 n = vec3(0,1,0);
-   if(efv>0.f)
+   if((efv>0.f&&modv<1.f))
    raydir = reflect(raydir,n);
    float nx = noise(raydir.x*10.f);
    float ny = noise(raydir.y*3.f);
